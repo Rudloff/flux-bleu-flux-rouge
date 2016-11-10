@@ -14,8 +14,8 @@
     <body style="width: 1000px; margin:auto;">
         <div id="fb-root"></div>
 <?php
-use League\Csv;
 use Gilbitron\Util\SimpleCache;
+use League\Csv;
 
 require_once __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/config.php';
@@ -27,6 +27,7 @@ function sortPosts($a, $b)
     if ($dateA == $dateB) {
         return 0;
     }
+
     return ($dateA > $dateB) ? -1 : 1;
 }
 
@@ -40,10 +41,10 @@ parse_str(
     $token
 );
 $fb = new \Facebook\Facebook([
-  'app_id' => APP_ID,
-  'app_secret' => APP_SECRET,
+  'app_id'                => APP_ID,
+  'app_secret'            => APP_SECRET,
   'default_graph_version' => 'v2.8',
-  'default_access_token' => $token['access_token']
+  'default_access_token'  => $token['access_token'],
 ]);
 
 $csv = Csv\Reader::createFromPath(__DIR__.'/sources.csv', 'r');
