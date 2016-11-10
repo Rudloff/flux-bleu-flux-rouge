@@ -1,0 +1,11 @@
+{
+  "license": "GPL-3.0",
+  "require": {
+    "facebook/graph-sdk": "~5.4.1",
+    "league/csv": "~8.1.2",
+    "gilbitron/php-simplecache": "~1.4.0"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "~3.1.0"
+  }
+}
