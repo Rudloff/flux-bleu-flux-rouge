@@ -32,19 +32,17 @@ function sortPosts($a, $b)
 }
 
 $cache = new SimpleCache();
-$token = [];
-parse_str(
+$token = json_decode(
     file_get_contents(
         'https://graph.facebook.com/oauth/access_token?client_id='.APP_ID.
         '&client_secret='.APP_SECRET.'&grant_type=client_credentials'
-    ),
-    $token
+    )
 );
 $fb = new \Facebook\Facebook([
   'app_id'                => APP_ID,
   'app_secret'            => APP_SECRET,
   'default_graph_version' => 'v2.8',
-  'default_access_token'  => $token['access_token'],
+  'default_access_token'  => $token->access_token,
 ]);
 
 $csv = Csv\Reader::createFromPath(__DIR__.'/sources.csv', 'r');
