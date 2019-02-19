@@ -1,7 +1,7 @@
 {
   "license": "GPL-3.0",
   "require": {
-    "facebook/graph-sdk": "~5.4.1",
+    "facebook/graph-sdk": "~5.7.0",
     "league/csv": "~8.1.2",
     "gilbitron/php-simplecache": "~1.4.0"
   },
